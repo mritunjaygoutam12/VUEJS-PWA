@@ -35,13 +35,6 @@ export default {
 }
 </script>
 <style lang="css">
-#login {
-	width: 30%;
-	height: 45%;
-	background-color: #2c3e50;
-	position: absolute;
-	top: 20%;
-	left: 35%;
-	border-radius: 5%;
+
 }
 </style>
