@@ -6,7 +6,7 @@
 	    style="font-size:48px;color:#2c3e50;">cloud_upload</i></div>
 	   <div class="aficon"><h6>{{item.name}}</h6></div>
 	   <div style="display: inline-block;" class="downicon" v-on:click="download(index)">
-		   <a href='http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2FSquirrel.jpg' target='_blank'> <i class="material-icons"
+		   <a href='http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2FSquirrel.jpg' target='_self'> <i class="material-icons"
 	    style="font-size:48px;color:#2c3e50;">cloud_download</i></a></div>
 		<hr>
 	</div>
