@@ -128,7 +128,7 @@ app.get("*", (req, res) => {
 		readyPromise.then(() => render(req, res, context))
 })
 console.log("HHHUUUUURRRYYYAAAA")
-const keyFilename="./comment-c7d54-firebase-adminsdk-hveft-d0f9cf0854.json"; //replace this with api key file
+const keyFilename="./uploads/comment-c7d54-firebase-adminsdk-hveft-d0f9cf0854.json"; //replace this with api key file
 const projectId = "comment-c7d54" //replace with your project id
 const bucketName = `${projectId}.appspot.com`;
 
