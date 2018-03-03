@@ -11,7 +11,7 @@
              transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, white 25%, 
              white 75%, #eee 75%, #eee 100%);cursor: zoom-in;background-color:black;" />
             
-            </p>
+            
          </div>
       </div>
      
