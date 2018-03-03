@@ -3,15 +3,15 @@
 		router-link.AppHeader__link(to="/")
 			img.AppHeader__logo(src="~images/logo.png", alt="Logo")
 			div.AppHeader__name
-				h3.AppHeader__title Site Name
-				div.AppHeader__subtitle $ts("site_subtitle")
+				h3.AppHeader__title Cernbox
+				
 </template>
 
 <style lang="scss">
 .AppHeader {
-	padding: 1rem;
+	padding: 0.7%;
 	font-size: 1.5rem;
-	background-color: whitesmoke;
+	background-color: #35495e;
 
 	&__link {
 		color: black;
