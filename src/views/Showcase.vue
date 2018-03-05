@@ -1,14 +1,16 @@
 <template lang="html">
 <div>
-	<div style="background:#f5f5f5;" class="listbox" v-for="(item, index) in list" 
+	<div style="background:white;" class="listbox" v-for="(item, index) in list" 
 	v-on:click="forward(index)">
 	   <div style="display: inline-block;"><i class="material-icons"
-	    style="font-size:48px;color:#2c3e50;">cloud_upload</i></div>
-	   <div class="aficon"><h6>{{item.name}}</h6></div>
-	   <div style="display: inline-block;" class="downicon" v-on:click="download(index)">
-		   <a href='http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2FSquirrel.jpg' target='_self'> <i class="material-icons"
-	    style="font-size:48px;color:#2c3e50;">cloud_download</i></a></div>
+	    style="font-size:48px;color:#2c3e50;">folder_open</i></div>
+	   <div class="aficon"><h5>{{item.name}}</h5></div>
+	   
 		<hr>
+	</div>
+	<div id="down">
+	<div id="dow" v-for="(n,index) in list" ><a v-bind:href="part[index]" target="_self">
+		<i class="material-icons">file_download</i></a></div>
 	</div>
 </div>
 </template>
@@ -23,13 +25,26 @@
 
 .downicon {
 	position: absolute;
-	left: 90%;
+	left: 80%;
 }
 
 .listbox {
 	position: relative;
 	left: 20%;
-	width: 60%;
+	width: 50%;
+}
+
+#down {
+	position: absolute;
+	left: 68%;
+	top: 14%;
+	width: 8.7%;
+	height: 8.8%;
+}
+
+#dow {
+	width: 100%;
+	height: 100%;
 }
 </style>
 
@@ -42,7 +57,8 @@ export default {
 			counter: 0,
 			path:'/',
 			prelist:[],
-			list:[]
+			list:[],
+			part:[]
 		}
 	},
 	computed: {
@@ -65,14 +81,20 @@ this.list.push(this.prelist[0][i])
      }
      this.prelist=[]
 	 console.log(response.data,this.list,"see")
+	 this.part=[]
+	 let inde=0,e=this.list.length
+	 for(inde=0;inde<e;inde++){
+	 }
+	 this.download(0,e)
 		}).catch(error =>{console.log(error)})
+		
 	},
-	forward:function(index){
+	 forward(index){
 		//var r=this.list[index].getname()
 		//console.log(r,"luucky")
        if(this.list[index].type==='dir'){
        this.path=this.list[index].name
-			this.listviewer()
+			//this.listviewer()
 			this.$router.push({ name: 'showcase', params: { name: this.path }})
        }
        else{
@@ -83,9 +105,10 @@ this.list.push(this.prelist[0][i])
 		}
 		u=u.slice(m+1,u.length)
 		let p=u.slice(u.length-4,u.length)
-		console.log(this.list[index].name,"just",u.slice(u.length-4,u.length))
-	 axios.post('/brodownload',{path:this.list[index].name,name:u}).then(response=>{
-	console.log(response.data,u)
+		//console.log(this.list[index].name,"just",u.slice(u.length-4,u.length))
+	  axios.post('/brodownload',{path:this.list[index].name,name:u}).then(response=>{
+	console.log(response.data,u,"see ity")
+	u=response.data
 	if(p===('.jpg'||'.png'||'.svg')){
 	this.$router.push({ name: 'img', params: { name: u}})
 	}
@@ -100,9 +123,20 @@ this.list.push(this.prelist[0][i])
 	   }
         
  },
- download(index){
+ load(){
+	 return "ret"
+ },
+   download(index,size){
+	if(index<size){
+	
 	 if(this.list[index].type==='dir'){
-       
+		 console.log("inside dirrr",this.list[index].type)
+         axios.post('/download',{path:this.list[index].name}).then(response=>{
+	console.log(response.data,"it is download dir",index)
+	 this.part.push(response.data)
+	 index=index+1
+       this.download(index,size)
+	})
 	   }
 	   else{
 		let u=this.list[index].name.slice(0,this.list[index].name.length)
@@ -112,22 +146,29 @@ this.list.push(this.prelist[0][i])
 		}
 		u=u.slice(m+1,u.length)
 		let p=u.slice(u.length-4,u.length)
-		console.log(this.list[index].name,"just",u.slice(u.length-4,u.length))
-	 axios.post('/brodownload',{path:this.list[index].name,name:u}).then(response=>{
-	console.log(response.data,u)
-	let r="http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2F"+this.$route.params.name
-	//window.open(r,'_blank')
-	setTimeout(() => window.open('http://google.com'), 2000);
+		console.log(this.list[index].name,"just file",u.slice(u.length-4,u.length))
+	   axios.post('/brodownload',{path:this.list[index].name,name:u}).then(response=>{
+	console.log(response.data,u,"it is download file",index)
+	this.part.push(response.data)
+		 index=index+1
+
+	 this.download(index++,size)
+	
 	})
 	 
 	   }
- }
+	   return 0
+	   console.log(this.part,"derto")
+  }
+	}
 	},
 	beforeMount(){
 	//	this.$router.push({ name: 'showcase',params: { name: '/' }})
 	this.path=this.$route.params.name
 		console.log(this.$route.params.name,"before")
 		this.listviewer()
+		//this.download()
+		console.log(this.list,"why not")
 		//this.listnamegen()
 	},
 	watch: {
@@ -135,6 +176,8 @@ this.list.push(this.prelist[0][i])
 			this.path=this.$route.params.name
 			//console.log(this.path,"watch",this.path[this.path.length-1])
 		this.listviewer()
+		//this.download()
+		console.log(this.part,"whyit")
 	  //this.listnamegen()
     }
   }

@@ -3,6 +3,7 @@ const path = require("path")
 const compression = require("compression")
 const express = require("express")
 const app = express()
+const unzip = require("unzip")
 
 var owncloud = require('js-owncloud-client');
 const bodyParser = require('body-parser')
@@ -162,11 +163,17 @@ app.post('/list',(req,res)=>{
 });
 })
 
-app.post('/brodownload',(req,res)=>{
-	let k=`./${req.body.name}`
-	console.log(req.body.path,"req",k)
+app.post('/brodownload', (req,res)=>{
+	let k=`./uploads/${req.body.name}`
+	let h=`a${req.body.name}`
+	console.log(req.body.name,"req",k)
+	const gcFile = bucket.file(h);
+	gcFile.exists((err,exists)=>{
+		console.log(typeof(err||exists),"mil gayaAAAAA")
+	if(!(err||exists)){
+		console.log("aja haiSSSSSS",(err||exists))	
 	oc.files.getFile(req.body.path,k).then(rest=>{
-		let h=`subfolder/${req.body.name}`
+		let h=`a${req.body.name}`
 		bucket.upload(k,{
 			destination:h,
 			public:true,
@@ -177,8 +184,8 @@ app.post('/brodownload',(req,res)=>{
 				console.log(err);
 				return;
 			}
-			console.log(createPublicFileURL(h));
-			res.send("mohit")
+			let l=createPublicFileURL(h);
+			res.send(l)
 		});
 		function createPublicFileURL(storageName) {
 			return `http://storage.googleapis.com/${bucketName}/${encodeURIComponent(storageName)}`;
@@ -186,7 +193,22 @@ app.post('/brodownload',(req,res)=>{
 		}
 		//res.send("mohit")
 	})
+}
+else{
+	 function createPublicFileURL(storageName) {
+		return `http://storage.googleapis.com/${bucketName}/${encodeURIComponent(storageName)}`;
+	
+	}
+	let l=createPublicFileURL(h);
+			res.send(l)
+}
+})
 
+})
+
+
+app.post('/download', (req,res)=>{
+res.send("mohit")
 })
 const port = config.server.port
 let server = app.listen(port, () => {

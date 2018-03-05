@@ -36,7 +36,7 @@ export default {
     beforeMount(){
 	//	this.$router.push({ name: 'showcase',params: { name: '/' }})
     //this.path=this.$route.params.name
-    this.imageLink="http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2F"+this.$route.params.name
+    this.imageLink=this.$route.params.name
     //this.imagepath()
 		console.log(this.$route.params.name,"before",this.imageLink)
 		//this.listviewer()
@@ -44,7 +44,7 @@ export default {
     },
     computed: {
   now: function () {
-      this.imageLink="http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2F"+this.$route.params.name
+      this.imageLink=this.$route.params.name
       console.log("computed")
       return this.imageLink
   }

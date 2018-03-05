@@ -1,7 +1,7 @@
 <template lang="html">
 	<div>
-       <iframe src="http://docs.google.com/gview?url=http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2FownCloud_User_Manual.pdf&embedded=true" 
-style="width:1300px; height:900px;" frameborder="0"></iframe>
+       <iframe v-bind:src="imageLink"  
+style="width:100%; height:900px;" frameborder="0"></iframe>
 	</div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     beforeMount(){
 	//	this.$router.push({ name: 'showcase',params: { name: '/' }})
     //this.path=this.$route.params.name
-    this.imageLink="http://docs.google.com/gview?url=http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2F"+this.$route.params.name+"&embedded=true"
+    this.imageLink="http://docs.google.com/gview?url="+this.$route.params.name+"&embedded=true"
     //this.imagepath()
         console.log(this.imageLink)
         console.log("http://docs.google.com/gview?url=http://storage.googleapis.com/comment-c7d54.appspot.com/subfolder%2FownCloud_User_Manual.pdf&embedded=true")

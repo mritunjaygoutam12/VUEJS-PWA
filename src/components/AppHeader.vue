@@ -1,6 +1,5 @@
 <template lang="pug">
 	header.AppHeader
-		router-link.AppHeader__link(to="/")
 			img.AppHeader__logo(src="~images/logo.png", alt="Logo")
 			div.AppHeader__name
 				h3.AppHeader__title Cernbox
@@ -35,6 +34,7 @@
 
 	&__title {
 		margin-right: 0.5rem;
+		color: white;
 	}
 }
 </style>
