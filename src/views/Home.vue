@@ -3,11 +3,12 @@
       <h1 style="text-align:center;color:#2c3e50">Welcome to Cernbox</h1>
       <div id="login">
         <h1 style="text-align:center;color:white;">Login</h1>
-        <div id="foram">
+        <div id="foram"><label>
         <input class="text" type="text"  placeholder="Username" autocomplete="new-password"
          v-model="user"><br><br>
 		 <input class="text"type="password" placeholder="Password"
                 autocomplete="new-password" v-model="password">
+								</label>
                 </div>
                 <button id="but" v-on:click="logincheck"><h2>Submit</h2></button>
 		 </div>
@@ -20,8 +21,8 @@ export default {
 	name: 'hello',
   data () {
     return {
-      user:"mohit",
-      password:"beauty@1"
+      user:"",
+      password:""
     }
   },
   meta () {
@@ -45,8 +46,8 @@ logincheck(){
 	},
 	beforeMount(){
 		//this.redirect()
-		//if(localStorage.getItem('test')==="loged")
-		//{this.$router.push({ name: 'showcase',params: { name: '/mohit' }})}
+		if(localStorage.getItem('test')==="loged")
+		{this.$router.push({ name: 'showcase',params: { name: '/' }})}
  }
 }
 </script>

@@ -208,12 +208,36 @@ else{
 
 
 app.post('/download', (req,res)=>{
-res.send("mohit")
+	oc.shares.shareFileWithLink(req.body.path).then(shareInfo => {
+		//console.log("Link is : " + shareInfo.getLink());
+		res.send(shareInfo.getLink())
+	}).catch(error => {
+		// HANDLE ERROR
+		console.log(error)
+	});
 })
 const port = config.server.port
 let server = app.listen(port, () => {
 	console.log(`Server started at localhost:${port}`)
 })
+ 
+app.post('/upload',upload.any(),(req,res)=>{
+	h=`./uploads/${req.body.file}`
+	console.log(req.body,"MMMMOOHITtttttt",h)
+	//res.send("mohit")
+	//if (!req.files)
+		//  return res.status(400).send('No files were uploaded.');
+		g=`${req.body.remote}${req.body.file}`
+		oc.files.putFile(g, h).then(status => {
+			//response.send();
+	console.log(status,"loDDDDIng")
+	res.send("lallanii")
+		}).catch(error => {
+			response.send(error);
+		});
+		//res.set('content-type','application/json')
+		//res.send("lallan")
+	})
 
 module.exports = {
 	ready: readyPromise,
