@@ -32,7 +32,9 @@ npm install
 npm run build
 npm start
 ```
+Now go to [localhost:3000](http://localhost:3000)
 
+and login.
 
 ## Lighthouse Score
 
