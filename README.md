@@ -22,9 +22,9 @@ In setup:
  
  enter 
       
-			 user->cernbox
+		user->cernbox
  
-       password->cerbox
+       password->cernbox
 			 
 Now vuejs client app.
 
@@ -36,7 +36,6 @@ npm run build
 npm start
 ```
 
-Check out the [official documentation](docs/Index.md) for info on how to get started and to get an idea on how everything works.
 
 ## Lighthouse Score
 
