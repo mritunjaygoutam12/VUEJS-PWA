@@ -15,7 +15,7 @@ import pdf from "views/pdf"
 const NotFound = () => System.import("views/NotFound") // load dynamically when needed
 
 let routes = [
-	{ path: "/", component: Home },
+	{ path: "/", name:"/",component: Home },
 { path: "/showcase:name", name: "showcase", component: Showcase },
 { path: "/img:name", name: "img", component: img },
 { path: "/vedio:name", name: "vedio", component: vedio },

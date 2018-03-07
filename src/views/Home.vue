@@ -45,8 +45,8 @@ logincheck(){
 	},
 	beforeMount(){
 		//this.redirect()
-		//if(localStorage.getItem('test')==="loged")
-		//{this.$router.push({ name: 'showcase',params: { name: '/mohit' }})}
+		if(localStorage.getItem('test')==="loged")
+		{this.$router.push({ name: 'showcase',params: { name: '/' }})}
  }
 }
 </script>
