@@ -118,7 +118,8 @@ this.list.push(this.prelist[0][i])
      }
      this.prelist=[]
 	 console.log(this.list,"seeha")
-	 if(this.list[0]==='l'){this.$router.push({ name: '/'})}
+	 if(this.list[0]==='l'){localStorage.setItem('test',null)
+		 this.$router.push({ name: '/'})}
 	 this.part=[]
 	 let inde=0,e=this.list.length
 	 for(inde=0;inde<e;inde++){
