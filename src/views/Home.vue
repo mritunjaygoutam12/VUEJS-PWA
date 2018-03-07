@@ -3,14 +3,15 @@
       <h1 style="text-align:center;color:#2c3e50">Welcome to Cernbox</h1>
       <div id="login">
         <h1 style="text-align:center;color:white;">Login</h1>
-        <div id="foram"><label>
+        <div id="foram"><label style="color:white">Username
         <input class="text" type="text"  placeholder="Username" autocomplete="new-password"
-         v-model="user"><br><br>
-		 <input class="text"type="password" placeholder="Password"
-                autocomplete="new-password" v-model="password">
-								</label>
+         v-model="user"></label><br><br>
+<label style="color:white">Password
+		 <input type="password" placeholder="Password"
+                autocomplete="new-password" v-model="password"></label>
+								
                 </div>
-                <button id="but" v-on:click="logincheck"><h2>Submit</h2></button>
+                <button id="but" v-on:click="logincheck"><h2 style="color:white;">Submit</h2></button>
 		 </div>
 	</div>
 </template>
@@ -71,7 +72,7 @@ input {
 
 #foram {
 	position: relative;
-	left: 15%;
+	left: 3%;
 	top: 15%;
 }
 
