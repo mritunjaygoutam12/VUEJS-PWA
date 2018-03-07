@@ -38,7 +38,7 @@ and login.
 
 ## Lighthouse Score
 
-     93 Performance 
+     98 Performance 
 	 100 PWA(on https)
 	  91 PWA(on http)
 	 100 Accessability
