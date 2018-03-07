@@ -14,7 +14,7 @@ Quickstart:
 sudo docker run -d -p 80:80 owncloud:10.0.4
 ```
 open
-* [localhost:80](https://localhost:80)
+* [localhost:80](http://localhost:80)
 
 If you not find owncloud setup screen reload and wait for a minute
 
