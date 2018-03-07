@@ -1,7 +1,5 @@
 
 
-## Todo
-
 ## Project In progress
 
 ## Docs
@@ -21,10 +19,9 @@ If you not find owncloud setup screen reload and wait for a minute
 In setup:
  
  enter 
-      
-		user->cernbox
  
-       password->cernbox
+	 user->cernbox
+    password->cernbox
 			 
 Now vuejs client app.
 
@@ -39,13 +36,9 @@ npm start
 
 ## Lighthouse Score
 
-      93 Performance 
-			
-			100 PWA(on https)
-			91 PWA(on http)
-			
-			100 Accessability
-			
-			100 Best practise
-			
-			100 SEO
+     93 Performance 
+	 100 PWA(on https)
+	  91 PWA(on http)
+	 100 Accessability
+	 100 Best practise
+	 100 SEO
