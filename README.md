@@ -8,9 +8,30 @@
 
 Quickstart:
 
+
+ Owncloud:10.0.4 server localhost deployment
+```
+sudo docker run -d -p 80:80 owncloud:10.0.4
+```
+open
+* [localhost:80](https://localhost:80)
+
+If you not find owncloud setup screen reload and wait for a minute
+
+In setup:
+ 
+ enter 
+      
+			 user->cernbox
+ 
+       password->cerbox
+			 
+Now vuejs client app.
+
 ```
 git clone https://github.com/mritunjaygoutam12/VUEJS-PWA.git
 cd VUEJS-PWA
+npm install
 npm run build
 npm start
 ```
@@ -19,10 +40,13 @@ Check out the [official documentation](docs/Index.md) for info on how to get sta
 
 ## Lighthouse Score
 
-
-
-## Thanks
-
-* [vuejs/vue-hackernews-2.0](https://github.com/vuejs/vue-hackernews-2.0)
-* [vuejs/pwa](https://github.com/vuejs/pwa/)
-* [Narkoleptika/webpack-everything](https://github.com/Narkoleptika/webpack-everything)
+      93 Performance 
+			
+			100 PWA(on https)
+			91 PWA(on http)
+			
+			100 Accessability
+			
+			100 Best practise
+			
+			100 SEO
