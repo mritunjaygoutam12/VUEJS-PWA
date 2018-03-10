@@ -11,7 +11,8 @@
                 autocomplete="new-password" v-model="password"></label>
 								
                 </div>
-                <button id="but" v-on:click="logincheck"><h2 style="color:white;">Submit</h2></button>
+                <div id="but" v-on:click="logincheck"><h2 style="color:white;margin:5px;">Submit</h2></div>
+								<div id="wrong" v-bind:style="{display:none}"><p style="color:red;">Wrong credentials</p></div>
 		 </div>
 	</div>
 </template>
@@ -23,7 +24,8 @@ export default {
   data () {
     return {
       user:"",
-      password:""
+      password:"",
+			none:"none"
     }
   },
   meta () {
@@ -41,6 +43,9 @@ logincheck(){
 		localStorage.setItem('test',response.data)
     if(localStorage.getItem('test')==="loged"){
 			this.$router.push({ name: 'showcase',params: { name: '/' }})
+		}
+		else{
+			this.none="block"
 		}
 	})
 }
@@ -61,6 +66,7 @@ logincheck(){
 	top: 20%;
 	left: 35%;
 	border-radius: 5%;
+	box-shadow: 5px 5px 5px grey;
 }
 
 input {
@@ -81,5 +87,12 @@ input {
 	top: 110%;
 	left: 40%;
 	background-color: #2c3e50;
+	border-radius: 5%;
+}
+
+#wrong {
+	position: absolute;
+	top: 130%;
+	left: 33%;
 }
 </style>

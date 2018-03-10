@@ -9,6 +9,7 @@
 </svg>
 	   </div>
 	   <div class="aficon" style="display: inline-block;"><h4>{{topname}}</h4></div>
+	   
 	   <div style="display: inline-block; position:relative;left:10%"><label><svg fill="#2c3e50" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
@@ -18,9 +19,10 @@
       </label></div>
 	</div>
 
-	<div style="background:white;" class="listbox" v-for="(item, index) in list" 
-	v-on:click="forward(index)">
-	   <div style="display: inline-block;"><div v-if="item.type==='dir'"><svg xmlns="http://www.w3.org/2000/svg" 
+	<div v-bind:style="{'background-color':color}" class="listbox" v-for="(item, index) in list" 
+	v-on:click="forward(index)" @mouseover="mouseOver(index)" @mouseleave="mouseLeave(index)">
+	   <div style="display: inline-block;"><div
+	    v-if="item.type==='dir'"><svg xmlns="http://www.w3.org/2000/svg" 
 	   style="fill:#d1d1e0;
 	   stroke:blue;stroke-width:0;fill-rule:nonzero;" width="48" height="48" 
 	   viewBox="0 0 48 48">
@@ -33,7 +35,8 @@
     <path d="M0 0h24v24H0z" fill="none"/>
 </svg></div>
 </div>
-	   <div class="aficon"><pre style="font-size:17px;">{{item.name}}</pre></div>
+	   <div class="aficon"><pre style="font-size:17px;"
+	   >{{item.name}}</pre></div>
 	   
 		<hr>
 	</div>
@@ -94,7 +97,8 @@ export default {
 			prelist:[],
 			list:[],
 			part:[],
-			topname:""
+			topname:"",
+			color:'white'
 		}
 	},
 	computed: {
@@ -107,6 +111,17 @@ export default {
 		}
 	},
 	methods:{
+		mouseOver(ind){
+       //this.color='grey'
+	   let r= document.getElementsByClassName('listbox');
+	   document.getElementsByClassName("listbox")[ind+1].style.backgroundColor = "whitesmoke";
+
+		},
+		mouseLeave(ind){
+//this.color="white"
+	   document.getElementsByClassName("listbox")[ind+1].style.backgroundColor = "white";
+
+		},
   listviewer(){
 		axios.post('/list',{path:this.path}).then(response =>{
 			this.prelist[0]=response.data
