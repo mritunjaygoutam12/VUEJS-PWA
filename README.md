@@ -7,9 +7,9 @@
 Quickstart:
 
 
- Owncloud:10.0.4 server localhost deployment
-```
-sudo docker run -d -p 80:80 owncloud:10.0.4
+ nextcloud server localhost deployment
+ * [install nextcloud](https://gist.github.com/mritunjaygoutam12/3a31b0022875f2890a07468a667a26f9)
+ 
 ```
 open
 * [localhost:80](http://localhost:80)
