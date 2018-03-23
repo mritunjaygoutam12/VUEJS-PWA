@@ -12,7 +12,7 @@ Quickstart:
  
 ```
 open
-* [localhost:80](http://localhost:80)
+* [localhost/nextcloud](http://localhost/nextcloud)
 
 If you not find owncloud setup screen reload and wait for a minute
 
@@ -20,8 +20,8 @@ In setup:
  
  enter 
  
-	 user->cernbox
-    password->cernbox
+	 user->
+    password->
 			 
 Now vuejs client app.
 
