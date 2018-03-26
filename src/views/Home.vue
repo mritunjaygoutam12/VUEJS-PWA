@@ -1,6 +1,6 @@
 <template lang="html">
 	<div>
-      <h1 style="text-align:center;color:#2c3e50">Welcome to Cernbox</h1>
+      <h1 style="text-align:center;color:#2c3e50">Welcome to Nextcloud</h1>
       <div id="login">
         <h1 style="text-align:center;color:white;">Login</h1>
         <div id="foram"><label style="color:white">Username
