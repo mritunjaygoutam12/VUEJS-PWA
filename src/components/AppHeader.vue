@@ -1,8 +1,8 @@
 <template lang="pug">
 	header.AppHeader
-			img.AppHeader__logo(src="~images/logo.png", alt="Logo")
+			
 			div.AppHeader__name
-				h3.AppHeader__title Cernbox
+				h3.AppHeader__title Nextcloud
 				
 </template>
 
