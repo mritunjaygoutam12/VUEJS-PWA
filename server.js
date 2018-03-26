@@ -24,7 +24,7 @@ var multer  = require('multer')
 
   var upload = multer({ storage: storage })
 
-var oc = new owncloud('localhost');
+var oc = new owncloud('localhost/nextcloud');
 
 //const fileUpload = require('express-fileupload');
 //app.use(fileUpload());
