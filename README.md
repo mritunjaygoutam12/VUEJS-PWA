@@ -14,7 +14,7 @@ Quickstart:
 open
 * [localhost/nextcloud](http://localhost/nextcloud)
 
-If you not find owncloud setup screen reload and wait for a minute
+If you not find nextcloud setup screen reload and wait for a minute
 
 In setup:
  
@@ -26,7 +26,7 @@ In setup:
 Now vuejs client app.
 
 ```
-git clone https://github.com/mritunjaygoutam12/VUEJS-PWA.git
+git clone https://github.com/mritunjaygoutam12/nextcloud.git
 cd VUEJS-PWA
 npm install
 npm run build
