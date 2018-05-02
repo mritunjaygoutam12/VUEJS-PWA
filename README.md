@@ -27,6 +27,8 @@ Now vuejs client app.
 
 ```
 git clone https://github.com/mritunjaygoutam12/nextcloud.git
+
+```
 cd VUEJS-PWA
 npm install
 npm run build
@@ -35,7 +37,7 @@ npm start
 Now go to [localhost:3000](http://localhost:3000)
 
 and login.
-
+```
 ## Lighthouse Score
 
      98 Performance 
